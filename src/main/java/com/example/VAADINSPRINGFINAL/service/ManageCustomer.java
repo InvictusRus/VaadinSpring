@@ -19,21 +19,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Страница редактирования и создания контактов
+ */
 @Route("manageClient")
 public class ManageCustomer extends AppLayout implements HasUrlParameter<Integer> {
 
-    Integer id;
-    FormLayout contactForm;
-    TextField firstName;
-    TextField secondName;
-    TextField fatherName;
-    TextField numberPhone;
-    TextField email;
-    DatePicker birthDate;
-    List<String> sexes;
-    ComboBox<String> select;
-    Button saveContact;
+    private Integer id;
+    private FormLayout contactForm;
+    private TextField firstName;
+    private TextField secondName;
+    private TextField fatherName;
+    private TextField numberPhone;
+    private TextField email;
+    private DatePicker birthDate;
+    private List<String> sexes;
+    private ComboBox<String> select;
+    private Button saveContact;
 
     @Autowired
     CustomerRepository customerRepository;
@@ -69,6 +71,9 @@ public class ManageCustomer extends AppLayout implements HasUrlParameter<Integer
         fillForm();
     }
 
+    /**
+     * Заполенние таблицы данными
+     */
     public void fillForm() {
         if (!id.equals(0)) {
             Optional<Customer> contact = customerRepository.findById(id);

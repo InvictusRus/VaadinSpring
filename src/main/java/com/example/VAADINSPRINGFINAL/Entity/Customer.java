@@ -5,9 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
-
+/**
+ * Класс клиента
+ */
 @Entity(name = "Contacts")
 public class Customer {
+    /**
+     * В application.properties установлено значение ddl-auto:update - таблица в базе создается
+     * автоматически на основе представленной сущности
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

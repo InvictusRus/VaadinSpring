@@ -15,14 +15,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-
+/**
+ * Основная страница приложения с клиентами
+ */
 @Route("clients")
 public class CustomerList extends AppLayout {
 
-    VerticalLayout layout;
-    Grid<Customer> grid;
-    RouterLink linkCreate;
+    //Вертикальное расположение элементов
+    private VerticalLayout layout;
+    //Отображение таблицы клиентов
+    private Grid<Customer> grid;
+    //Переход на страницу создания клиента
+    private RouterLink linkCreate;
 
+    //Подключение репозитория
     @Autowired
     CustomerRepository customerRepository;
 
@@ -36,6 +42,9 @@ public class CustomerList extends AppLayout {
         setContent(layout);
     }
 
+    /**
+     * Заполнение таблицы
+     */
     @PostConstruct
     public void fillGrid() {
         List<Customer> customers = customerRepository.findAll();
